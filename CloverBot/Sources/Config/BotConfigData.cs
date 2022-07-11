@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace CloverBot.Config {
-    public class BotConfigData {
+    internal class BotConfigData {
         [JsonPropertyName("discord")]
         public DiscordConfig discordConfig { get; set; }
 
