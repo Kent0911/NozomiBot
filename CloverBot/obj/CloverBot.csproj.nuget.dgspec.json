@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\CloverBot.csproj": {}
+    "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\CloverBot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\CloverBot.csproj": {
+    "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\CloverBot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\CloverBot.csproj",
+        "projectUniqueName": "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\CloverBot.csproj",
         "projectName": "CloverBot",
-        "projectPath": "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\CloverBot.csproj",
+        "projectPath": "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\CloverBot.csproj",
         "packagesPath": "C:\\Users\\mots_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\obj\\",
+        "outputPath": "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mots_\\AppData\\Roaming\\NuGet\\NuGet.Config",

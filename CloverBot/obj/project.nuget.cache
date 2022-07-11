@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v81ja4HGswuWLA6fvAU8Wlreo9BcK8V3AO8y0xpylxJF6YXSfkvGA4omJPIVFYnhPwWsTovBolcnhp/wZ7HUwQ==",
+  "dgSpecHash": "+26QsIl/E9tbMdGW1bHRE9E9EGPHKc+y3E0NC38x/8vdASuFm4Ob9J+YImGzt9N9OOVcdp42JhvF122Dky5z4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mots_\\Documents\\GitHub\\Clover_Bot\\CloverBot\\CloverBot.csproj",
+  "projectFilePath": "C:\\Users\\mots_\\Documents\\GitHub\\CloverBot\\CloverBot\\CloverBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mots_\\.nuget\\packages\\discord.net\\3.7.2\\discord.net.3.7.2.nupkg.sha512",
     "C:\\Users\\mots_\\.nuget\\packages\\discord.net.commands\\3.7.2\\discord.net.commands.3.7.2.nupkg.sha512",
