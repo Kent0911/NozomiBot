@@ -33,7 +33,7 @@ namespace CloverBot {
                 if (message == null || message.Author.IsBot) return;
 
                 int argPos = 0;
-                var context = new CommandContext(m_client, message);
+                var context = new SocketCommandContext(m_client, message);
                 // コマンドかどうか判定
                 if (message.HasCharPrefix('/', ref argPos)) {
                     try {
