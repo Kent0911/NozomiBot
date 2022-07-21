@@ -84,7 +84,7 @@ namespace CloverBot.Commands {
 
         }
 
-        [Command("help")]
+        [Command("help_clover")]
         public async Task Help() {
             await ReplyAsync("help!");
         }

@@ -33,15 +33,16 @@ namespace CloverBot {
                 if (message == null || message.Author.IsBot) return;
 
                 int argPos = 0;
-                var context = new SocketCommandContext(m_client, message);
-                if (message.HasCharPrefix('/', ref argPos) || message.HasMentionPrefix(m_client.CurrentUser, ref argPos)) {
+                var context = new CommandContext(m_client, message);
+                // コマンドかどうか判定
+                if (message.HasCharPrefix('/', ref argPos)) {
                     try {
                         var result = await m_commands.ExecuteAsync(context, argPos, m_services);
                         if (!result.IsSuccess) await context.Channel.SendMessageAsync(result.ErrorReason);
                     } catch (Exception _e) {
                         Console.WriteLine(_e);
                     }
-                }
+                } else { return; }
             } catch (Exception _e) {
                 Console.WriteLine(_e);
             }
