@@ -1,21 +1,17 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using CloverBot.Boot;
 
-namespace CloverBot.Script {
-    public class Program {
-        private CloverBot cloverBot;
-
+namespace CloverBot.MainScript {
+    internal class Program {
+        private CloverBot cloverBot = new CloverBot();
         private static readonly string configPath = Path.Combine("data", "botConfig.json");
 
-        // Botの起動処理
         static void Main() => new Program().MainAsync().GetAwaiter().GetResult();
-        public Task MainAsync() { 
+        public async Task MainAsync() {
             BotConfigManager.setJsonConfig(configPath);
-
-            cloverBot = new CloverBot();
-            return Task.CompletedTask;
+            await Task.Run(cloverBot.BotAsync);
         }
     }
 }
+

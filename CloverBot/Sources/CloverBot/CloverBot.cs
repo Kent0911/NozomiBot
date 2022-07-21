@@ -1,51 +1,60 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using Discord.WebSocket;
-using Discord.Commands;
 using Microsoft.Extensions.DependencyInjection;
+using Discord;
+using Discord.Commands;
+using Discord.WebSocket;
 using CloverBot.Boot;
 
 namespace CloverBot {
-    class CloverBot {
-        private DiscordSocketClient client { get; }
-        private CommandService commands { get; }
-        private IServiceProvider services { get; }
-        
-        public CloverBot() {
-            client = new DiscordSocketClient(new DiscordSocketConfig { LogLevel = Discord.LogSeverity.Info });
-            client.Log += Log;
-            commands = new CommandService();
-            services = new ServiceCollection().BuildServiceProvider();
+    internal class CloverBot : ModuleBase {
+        public DiscordSocketClient m_client { get; set; }
+        public static CommandService m_commands { get; set; }
+        public static IServiceProvider m_services { get; set; }
 
-            Initialize();
-        }
-        private async void Initialize() {
-            await commands.AddModulesAsync(Assembly.GetExecutingAssembly(), services);
-            await client.LoginAsync(Discord.TokenType.Bot, BotConfigManager.token);
-            await client.StartAsync();
-            await RefreshInUpdateDate();
+        public async Task BotAsync() {
+            m_client = new DiscordSocketClient(new DiscordSocketConfig { LogLevel = LogSeverity.Info });
+            m_client.Log += Log;
+            m_commands = new CommandService();
+            m_services = new ServiceCollection().BuildServiceProvider();
+            m_client.MessageReceived += CommandRecieved;
 
-            Console.WriteLine("CloverBot Initialized");
+            await m_commands.AddModulesAsync(Assembly.GetEntryAssembly(), m_services);
+            await m_client.LoginAsync(TokenType.Bot, BotConfigManager.token);
+            await m_client.StartAsync();
+
+            await Task.Delay(-1);
         }
 
-        private async Task RefreshInUpdateDate() {
-            DateTime nowDateTime;
-            TimeSpan nowTime;
-            TimeSpan updateTimeSpan;
+        public async Task CommandRecieved(SocketMessage _message) {
+            try {
+                var message = _message as SocketUserMessage;
+                if (message == null || message.Author.IsBot) return;
 
-            nowDateTime = DateTime.UtcNow;
+                int argPos = 0;
+                var context = new SocketCommandContext(m_client, message);
+                if (message.HasCharPrefix('/', ref argPos) || message.HasMentionPrefix(m_client.CurrentUser, ref argPos)) {
+                    try {
+                        var result = await m_commands.ExecuteAsync(context, argPos, m_services);
+                        if (!result.IsSuccess) await context.Channel.SendMessageAsync(result.ErrorReason);
+                    } catch (Exception _e) {
+                        Console.WriteLine(_e);
+                    }
+                }
+            } catch (Exception _e) {
+                Console.WriteLine(_e);
+            }
         }
 
-        private Task Log(Discord.LogMessage _message) { return Task.CompletedTask; }
+        [Command("help")]
+        public async Task Help() {
+            await ReplyAsync("help!");
+        }
 
-        private async Task SendMessage(SocketMessage _messageParam, String _message) {
-            var message = _messageParam as SocketUserMessage;
-            var content = new CommandContext(client, message);
-
-            if (message == null || message.Author.IsBot) return;
-
-            await message.Channel.SendMessageAsync(_message);
+        private Task Log(LogMessage _message) {
+            Console.WriteLine(_message.ToString());
+            return Task.CompletedTask;
         }
     }
 }
