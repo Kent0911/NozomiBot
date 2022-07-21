@@ -8,7 +8,7 @@ using Discord.WebSocket;
 using CloverBot.Boot;
 
 namespace CloverBot {
-    internal class CloverBot : ModuleBase {
+    internal class CloverBot {
         public DiscordSocketClient m_client { get; set; }
         public static CommandService m_commands { get; set; }
         public static IServiceProvider m_services { get; set; }
@@ -45,11 +45,6 @@ namespace CloverBot {
             } catch (Exception _e) {
                 Console.WriteLine(_e);
             }
-        }
-
-        [Command("help")]
-        public async Task Help() {
-            await ReplyAsync("help!");
         }
 
         private Task Log(LogMessage _message) {
