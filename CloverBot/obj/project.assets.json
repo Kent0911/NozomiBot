@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net6.0": {
       "Discord.Net/3.7.2": {
         "type": "package",
         "dependencies": {
@@ -19,10 +19,10 @@
           "Discord.Net.Core": "3.7.2"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.Commands.dll": {}
+          "lib/net6.0/Discord.Net.Commands.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.Commands.dll": {}
+          "lib/net6.0/Discord.Net.Commands.dll": {}
         }
       },
       "Discord.Net.Core/3.7.2": {
@@ -34,10 +34,10 @@
           "System.ValueTuple": "4.5.0"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.Core.dll": {}
+          "lib/net6.0/Discord.Net.Core.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.Core.dll": {}
+          "lib/net6.0/Discord.Net.Core.dll": {}
         }
       },
       "Discord.Net.Interactions/3.7.2": {
@@ -51,10 +51,10 @@
           "System.Reactive": "5.0.0"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.Interactions.dll": {}
+          "lib/net6.0/Discord.Net.Interactions.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.Interactions.dll": {}
+          "lib/net6.0/Discord.Net.Interactions.dll": {}
         }
       },
       "Discord.Net.Rest/3.7.2": {
@@ -63,10 +63,10 @@
           "Discord.Net.Core": "3.7.2"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.Rest.dll": {}
+          "lib/net6.0/Discord.Net.Rest.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.Rest.dll": {}
+          "lib/net6.0/Discord.Net.Rest.dll": {}
         }
       },
       "Discord.Net.Webhook/3.7.2": {
@@ -76,10 +76,10 @@
           "Discord.Net.Rest": "3.7.2"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.Webhook.dll": {}
+          "lib/net6.0/Discord.Net.Webhook.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.Webhook.dll": {}
+          "lib/net6.0/Discord.Net.Webhook.dll": {}
         }
       },
       "Discord.Net.WebSocket/3.7.2": {
@@ -89,10 +89,10 @@
           "Discord.Net.Rest": "3.7.2"
         },
         "compile": {
-          "lib/net5.0/Discord.Net.WebSocket.dll": {}
+          "lib/net6.0/Discord.Net.WebSocket.dll": {}
         },
         "runtime": {
-          "lib/net5.0/Discord.Net.WebSocket.dll": {}
+          "lib/net6.0/Discord.Net.WebSocket.dll": {}
         }
       },
       "Google.Apis/1.57.0": {
@@ -154,10 +154,10 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {}
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -166,10 +166,10 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -229,10 +229,10 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -742,7 +742,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net6.0": [
       "Discord.Net >= 3.7.2",
       "Google.Apis.YouTube.v3 >= 1.57.0.2735",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0"
@@ -765,15 +765,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -784,8 +784,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Discord.Net": {
             "target": "Package",
