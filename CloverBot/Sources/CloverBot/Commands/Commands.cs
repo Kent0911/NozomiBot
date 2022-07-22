@@ -19,7 +19,7 @@ namespace CloverBot.Commands {
         MAX
     }
 
-    internal class BotCommands : ModuleBase {
+    public class BotCommands : ModuleBase {
         private static Dictionary<string, Commands> dicCommands = new Dictionary<string, Commands>() {
             { "setup", Commands.SETUP },
             { "reset", Commands.RESET },

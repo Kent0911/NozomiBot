@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Discord;
@@ -14,42 +15,43 @@ namespace CloverBot {
         public static IServiceProvider m_services { get; set; }
 
         public async Task BotAsync() {
-            m_client = new DiscordSocketClient(new DiscordSocketConfig { LogLevel = LogSeverity.Info });
+            m_client = new DiscordSocketClient( new DiscordSocketConfig { LogLevel = LogSeverity.Info });
             m_client.Log += Log;
             m_commands = new CommandService();
             m_services = new ServiceCollection().BuildServiceProvider();
             m_client.MessageReceived += CommandRecieved;
 
-            await m_commands.AddModulesAsync(Assembly.GetEntryAssembly(), m_services);
-            await m_client.LoginAsync(TokenType.Bot, BotConfigManager.token);
+            await m_commands.AddModulesAsync( Assembly.GetEntryAssembly(), m_services );
+            await m_client.LoginAsync( TokenType.Bot, BotConfigManager.token );
             await m_client.StartAsync();
 
-            await Task.Delay(-1);
+            await Task.Delay( Timeout.Infinite );
         }
 
-        public async Task CommandRecieved(SocketMessage _message) {
+        private async Task CommandRecieved( SocketMessage _message ) {
             try {
                 var message = _message as SocketUserMessage;
-                if (message == null || message.Author.IsBot) return;
+                Console.WriteLine( "{0} {1}:{2}", message.Channel.Name, message.Author.Username, message );
+                if ( message == null || message.Author.IsBot ) { return; }
 
                 int argPos = 0;
-                var context = new SocketCommandContext(m_client, message);
                 // コマンドかどうか判定
-                if (message.HasCharPrefix('/', ref argPos)) {
+                if ( message.HasCharPrefix( '/', ref argPos ) || message.HasMentionPrefix( m_client.CurrentUser, ref argPos )) {
                     try {
-                        var result = await m_commands.ExecuteAsync(context, argPos, m_services);
-                        if (!result.IsSuccess) await context.Channel.SendMessageAsync(result.ErrorReason);
-                    } catch (Exception _e) {
-                        Console.WriteLine(_e);
+                        var context = new SocketCommandContext( m_client, message );
+                        var result = await m_commands.ExecuteAsync( context, argPos, m_services );
+                        if ( !result.IsSuccess ) await context.Channel.SendMessageAsync( result.ErrorReason );
+                    } catch ( Exception _e ) {
+                        Console.WriteLine( _e );
                     }
                 } else { return; }
-            } catch (Exception _e) {
-                Console.WriteLine(_e);
+            } catch ( Exception _e ) {
+                Console.WriteLine( _e );
             }
         }
 
-        private Task Log(LogMessage _message) {
-            Console.WriteLine(_message.ToString());
+        private Task Log(LogMessage _log) {
+            Console.WriteLine(_log.ToString());
             return Task.CompletedTask;
         }
     }
