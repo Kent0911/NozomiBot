@@ -1,3 +1,8 @@
+C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.csproj.AssemblyReference.cache
+C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.AssemblyInfoInputs.cache
+C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.AssemblyInfo.cs
+C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.csproj.CoreCompileInputs.cache
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\NozomiBot.exe
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\NozomiBot.deps.json
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\NozomiBot.runtimeconfig.json
@@ -20,11 +25,6 @@ C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\Newtonsoft.
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\System.Interactive.Async.dll
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\System.Linq.Async.dll
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\bin\Debug\net6.0\System.Reactive.dll
-C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.csproj.AssemblyReference.cache
-C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.AssemblyInfoInputs.cache
-C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.AssemblyInfo.cs
-C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.csproj.CoreCompileInputs.cache
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.csproj.CopyComplete
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\NozomiBot.dll
 C:\Users\mots_\Documents\GitHub\NozomiBot\NozomiBot\obj\Debug\net6.0\refint\NozomiBot.dll

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text.Json;
 using NozomiBot.Config;
 
@@ -10,7 +11,7 @@ namespace NozomiBot.Boot {
         public static string SQLConnectionString { get; private set; } = string.Empty;
         public static void setJsonConfig ( string _path ) {
             var jsonData = File.ReadAllText ( _path );
-            configData = JsonSerializer.Deserialize< BotConfigData >( jsonData );
+            configData = JsonSerializer.Deserialize<BotConfigData>( jsonData );
             token = configData.discordConfig.token;
 
             SQLConnectionString = $"server = { configData.databaseConfig.host }; " +
