@@ -9,10 +9,11 @@ using Discord.WebSocket;
 using NozomiBot.Boot;
 
 namespace NozomiBot {
-    internal class NozomiBot {
-        public DiscordSocketClient m_client { get; set; }
+   internal class NozomiBot {
+        public static DiscordSocketClient m_client { get; set; }
         public static CommandService m_commands { get; set; }
         public static IServiceProvider m_services { get; set; }
+        public static SocketUserMessage m_message { get; set; }
 
         public async Task BotAsync() {
             m_client = new DiscordSocketClient( new DiscordSocketConfig { LogLevel = LogSeverity.Info });
@@ -30,15 +31,14 @@ namespace NozomiBot {
 
         private async Task CommandRecieved( SocketMessage _message ) {
             try {
-                var message = _message as SocketUserMessage;
-                Console.WriteLine( "{0} {1}:{2}", message.Channel.Name, message.Author.Username, message );
-                if ( message == null || message.Author.IsBot ) { return; }
+                m_message = _message as SocketUserMessage;
+                if ( m_message == null || m_message.Author.IsBot ) { return; }
 
                 int argPos = 0;
                 // コマンドかどうか判定
-                if ( message.HasCharPrefix( '/', ref argPos ) || message.HasMentionPrefix( m_client.CurrentUser, ref argPos )) {
+                if ( m_message.HasCharPrefix( '/', ref argPos ) || m_message.HasMentionPrefix( m_client.CurrentUser, ref argPos )) {
                     try {
-                        var context = new SocketCommandContext( m_client, message );
+                        var context = new SocketCommandContext( m_client, m_message );
                         var result = await m_commands.ExecuteAsync( context, argPos, m_services );
                         if ( !result.IsSuccess ) await context.Channel.SendMessageAsync( result.ErrorReason );
                     } catch ( Exception _e ) {
